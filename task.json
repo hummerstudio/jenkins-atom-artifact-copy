@@ -1,0 +1,86 @@
+{
+  "atomCode": "artifact-copy",
+  "name": "Copy artifacts",
+  "version": "1.0.0",
+  "description": "Copies archived artifacts from another build into this workspace.",
+  "execution": {
+    "packagePath": "artifact-copy.jar",
+    "language": "java",
+    "target": "$atom_java_path -cp artifact-copy.jar com.jenkinschina.atom.sdk.AtomRunner"
+  },
+  "input": {
+    "sourceUrl": {
+      "label": "Jenkins 地址",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "sourceJob": {
+      "label": "来源 Job",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "buildSelector": {
+      "label": "选哪个构建（lastSuccessfulBuild / lastCompletedBuild / lastBuild / number）",
+      "type": "vuex-input",
+      "default": "lastSuccessfulBuild"
+    },
+    "buildNumber": {
+      "label": "构建号（selector=number 时必填）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "artifacts": {
+      "label": "要复制的文件（glob，逗号分隔）",
+      "type": "vuex-input",
+      "default": "**/*"
+    },
+    "targetDir": {
+      "label": "放到哪个目录",
+      "type": "vuex-input",
+      "default": "copied"
+    },
+    "username": {
+      "label": "用户名（可选）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "token": {
+      "label": "API Token（可选）",
+      "type": "password",
+      "default": ""
+    },
+    "timeoutSeconds": {
+      "label": "超时（秒）",
+      "type": "vuex-input",
+      "default": "60"
+    }
+  },
+  "output": {
+    "filesCopied": {
+      "type": "string",
+      "description": "复制的文件数"
+    },
+    "bytes": {
+      "type": "string",
+      "description": "复制的字节数"
+    },
+    "targetDir": {
+      "type": "string",
+      "description": "目标目录"
+    },
+    "sourceBuild": {
+      "type": "string",
+      "description": "来源构建号"
+    },
+    "sourceResult": {
+      "type": "string",
+      "description": "来源构建结果"
+    }
+  },
+  "x-jenkins": {
+    "protocol": "jenkins-1",
+    "requires": {
+      "runner": ">=0.4.0"
+    }
+  }
+}

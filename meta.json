@@ -1,0 +1,12 @@
+{
+  "name": "Copy artifacts",
+  "summary": "Copies archived artifacts from another build into this workspace.",
+  "author": "hummerstudio",
+  "license": "MIT",
+  "tags": [
+    "official-port",
+    "artifacts",
+    "jenkins"
+  ],
+  "homepage": "https://github.com/hummerstudio/jenkins-atom-artifact-copy"
+}
