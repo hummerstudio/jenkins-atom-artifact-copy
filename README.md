@@ -10,5 +10,5 @@ copyartifact 插件在 Jenkins 内部做这件事（用 job 模型和指纹）�
 - 401/403 提示 token 需要该 job 的读权限
 
 ```bash
-./build.sh && ./tools/smoke.sh
+mvn verify   # build + src/test/java/atom/ArtifactCopyIT.java（JUnit 5，对着 tools/fake_jenkins.py）
 ```
